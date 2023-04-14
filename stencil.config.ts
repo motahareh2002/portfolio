@@ -1,17 +1,24 @@
 import { Config } from '@stencil/core';
-
-// https://stenciljs.com/docs/config
+import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  globalStyle: 'src/global/app.css',
-  globalScript: 'src/global/app.ts',
-  taskQueue: 'async',
-  outputTargets: [
-    {
-      type: 'www',
-      // comment the following line to disable service workers in production
-      serviceWorker: null,
-      baseUrl: 'https://myapp.local/',
-    },
-  ],
+	globalScript: 'src/global/app.ts',
+	taskQueue: 'async',
+	outputTargets: [
+		{
+			type: 'www',
+			baseUrl: 'https://stenciljs.com/',
+			prerenderConfig: './prerender.config.ts',
+		},
+	],
+	plugins: [
+		tailwind(),
+		tailwindHMR(),
+		sass(),
+	],
+	devServer: {
+		reloadStrategy: 'pageReload',
+		port: 3000,
+	},
 };
