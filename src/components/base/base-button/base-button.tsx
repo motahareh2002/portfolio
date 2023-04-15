@@ -8,12 +8,11 @@ import { Component, h ,Prop} from '@stencil/core';
 export class BaseButton{
     @Prop() text : string
     @Prop() backgroundColor : string
-    @Prop() SettingBackgroundColor : number
     @Prop() borderRadius : string
     @Prop() textColor : string = "white"
 	render() {
 		return (
-			<button class = {`bg-${this.backgroundColor}-${this.SettingBackgroundColor} rounded-${this.borderRadius} text-${this.textColor}`}>{this.text}</button>
+			<button class = {`${this.backgroundColor} rounded-${this.borderRadius} text-${this.textColor}`}>{this.text}</button>
 		);
 	}
 }
