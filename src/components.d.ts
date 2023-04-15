@@ -8,12 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppRoot {
     }
-    interface BaseButton {
-        "SettingBackgroundColor": number;
-        "backgroundColor": string;
-        "borderRadius": string;
+    interface BaseBtn {
+        "bgColor": string;
+        "radius": string;
+        "tColor": string;
         "text": string;
-        "textColor": string;
     }
     interface BaseFooter {
     }
@@ -31,11 +30,11 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
-    interface HTMLBaseButtonElement extends Components.BaseButton, HTMLStencilElement {
+    interface HTMLBaseBtnElement extends Components.BaseBtn, HTMLStencilElement {
     }
-    var HTMLBaseButtonElement: {
-        prototype: HTMLBaseButtonElement;
-        new (): HTMLBaseButtonElement;
+    var HTMLBaseBtnElement: {
+        prototype: HTMLBaseBtnElement;
+        new (): HTMLBaseBtnElement;
     };
     interface HTMLBaseFooterElement extends Components.BaseFooter, HTMLStencilElement {
     }
@@ -63,7 +62,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
-        "base-button": HTMLBaseButtonElement;
+        "base-btn": HTMLBaseBtnElement;
         "base-footer": HTMLBaseFooterElement;
         "base-header": HTMLBaseHeaderElement;
         "page-about": HTMLPageAboutElement;
@@ -73,12 +72,11 @@ declare global {
 declare namespace LocalJSX {
     interface AppRoot {
     }
-    interface BaseButton {
-        "SettingBackgroundColor"?: number;
-        "backgroundColor"?: string;
-        "borderRadius"?: string;
+    interface BaseBtn {
+        "bgColor"?: string;
+        "radius"?: string;
+        "tColor"?: string;
         "text"?: string;
-        "textColor"?: string;
     }
     interface BaseFooter {
     }
@@ -90,7 +88,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
-        "base-button": BaseButton;
+        "base-btn": BaseBtn;
         "base-footer": BaseFooter;
         "base-header": BaseHeader;
         "page-about": PageAbout;
@@ -102,7 +100,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-            "base-button": LocalJSX.BaseButton & JSXBase.HTMLAttributes<HTMLBaseButtonElement>;
+            "base-btn": LocalJSX.BaseBtn & JSXBase.HTMLAttributes<HTMLBaseBtnElement>;
             "base-footer": LocalJSX.BaseFooter & JSXBase.HTMLAttributes<HTMLBaseFooterElement>;
             "base-header": LocalJSX.BaseHeader & JSXBase.HTMLAttributes<HTMLBaseHeaderElement>;
             "page-about": LocalJSX.PageAbout & JSXBase.HTMLAttributes<HTMLPageAboutElement>;
