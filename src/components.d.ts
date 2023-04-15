@@ -8,6 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppRoot {
     }
+    interface BaseButton {
+        "SettingBackgroundColor": number;
+        "backgroundColor": string;
+        "borderRadius": string;
+        "text": string;
+        "textColor": string;
+    }
     interface BaseFooter {
     }
     interface BaseHeader {
@@ -23,6 +30,12 @@ declare global {
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
+    };
+    interface HTMLBaseButtonElement extends Components.BaseButton, HTMLStencilElement {
+    }
+    var HTMLBaseButtonElement: {
+        prototype: HTMLBaseButtonElement;
+        new (): HTMLBaseButtonElement;
     };
     interface HTMLBaseFooterElement extends Components.BaseFooter, HTMLStencilElement {
     }
@@ -50,6 +63,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
+        "base-button": HTMLBaseButtonElement;
         "base-footer": HTMLBaseFooterElement;
         "base-header": HTMLBaseHeaderElement;
         "page-about": HTMLPageAboutElement;
@@ -58,6 +72,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppRoot {
+    }
+    interface BaseButton {
+        "SettingBackgroundColor"?: number;
+        "backgroundColor"?: string;
+        "borderRadius"?: string;
+        "text"?: string;
+        "textColor"?: string;
     }
     interface BaseFooter {
     }
@@ -69,6 +90,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
+        "base-button": BaseButton;
         "base-footer": BaseFooter;
         "base-header": BaseHeader;
         "page-about": PageAbout;
@@ -80,6 +102,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "base-button": LocalJSX.BaseButton & JSXBase.HTMLAttributes<HTMLBaseButtonElement>;
             "base-footer": LocalJSX.BaseFooter & JSXBase.HTMLAttributes<HTMLBaseFooterElement>;
             "base-header": LocalJSX.BaseHeader & JSXBase.HTMLAttributes<HTMLBaseHeaderElement>;
             "page-about": LocalJSX.PageAbout & JSXBase.HTMLAttributes<HTMLPageAboutElement>;
