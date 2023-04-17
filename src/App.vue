@@ -15,12 +15,14 @@ import HelloWorld from './components/HelloWorld.vue';
 				<RouterLink to="/about">About</RouterLink>
 			</nav>
 		</div>
+
+		<h1 className="text-3xl font-bold underline text-red-600">Hello world!</h1>
 	</header>
 
 	<RouterView />
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 header {
 	line-height: 1.5;
 	max-height: 100vh;
